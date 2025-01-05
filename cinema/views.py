@@ -28,11 +28,11 @@ class GenreList(APIView):
 class GenreDetail(APIView):
 
     def get_object(self, pk):
-        return get_object_or_404(Movie, pk=pk)
+        return get_object_or_404(Genre, pk=pk)
 
     def get(self, request, pk):
         genre = self.get_object(pk)
-        serializer = MovieSerializer(genre)
+        serializer = GenreSerializer(genre)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def put(self, request, pk):
